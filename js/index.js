@@ -1,9 +1,9 @@
 var cart = {};
 
 var priceList = {
-    veg : 100,
-    egg : 150,
-    chicken : 200
+    Veg : 100,
+    Egg : 150,
+    Chicken : 200
 };
 
 var formIndex = {
@@ -83,12 +83,9 @@ function placeOrder() {
                     + "</b>% discount & Total Price after Discount Rs. <b>" 
                     + data.price 
                     + "/-</b></p>"
-                    + "<br><br><br><h4>Please wait while you are being redirected to home page...</h4>"
+                    + "<br><br><br><h4><a href='index.html'>Click here to go to index page...</a></h4>"
             );
             window.localStorage.removeItem("cart");
-            setTimeout(function () {
-                window.location = "index.html";
-            }, 5000);
         },
         error: function () {
             alert("lol");
