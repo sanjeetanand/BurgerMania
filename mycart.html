@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Mania :: My Cart</title>
+    <script src="js/Burger.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body onload="appendData()">
+
+    <div class="outer">
+        <table id="my-table">
+            <tr>
+                <th colspan="6">My Cart Details</th>
+            </tr>
+            <tr>
+                <th>Burger Type</th>
+                <th>Burger Category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Remove</th>
+            </tr>
+        </table>
+        <h4 id="total"></h4>
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+    <div class="infoDiv">
+
+    </div>
+</body>
+
+</html>

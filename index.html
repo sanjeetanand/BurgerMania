@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Mania :: Home</title>
+    <style>
+        body {
+            background-color: black;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+
+        img {
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        input[type=text] {
+            border: 5px solid #8842d5;
+            border-radius: 5px;
+            background-color: black;
+            color: #8842d5;
+            font-size: 16px;
+            padding: 10px 32px;
+        }
+
+        .button {
+            background-color: #8842d5;
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .label {
+            color: red;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function checkMobile() {
+            var mobile = document.getElementById("mobile").value;
+            var phoneno = /^\d{10}$/;
+            if (mobile.match(phoneno)) {
+                return true;
+            } else {
+                alert("Not a valid mobile number.");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <img src="images/burgerHome.png">
+    </div>
+    <div>
+        <form onsubmit="return checkMobile()" action="burgers.html">
+            <label class="label">Mobile No </label>
+            <input type="text" name="mobile" id="mobile">
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </div>
+</body>
+
+</html>
