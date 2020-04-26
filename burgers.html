@@ -7,81 +7,231 @@
     <title>Burger Mania :: Burgers</title>
     <script src="js/Burger.js" type="text/javascript"></script>
     <script src="js/index.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/ui.css" />
+    <link href="css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
-        <table>
-            <tr><form action="#" id="CrispySupreme">
-                <td>Crispy Supreme</td>
-                <td>
-                    <select id="category" name="category">
-                        <option value="Veg">Veg</option>
-                        <option value="Egg">Egg</option>
-                        <option value="Chicken">Chicken</option>
-                    </select>
-                </td>
-                <td><input type="number" min="1" max="5" id="quantity" name="quantity"></td>
-                <td><input type="button" onclick="addToCart('CrispySupreme');" value="Add to Cart"></td>
-            </form></tr>
-            
-            <tr><form action="#" id="Surprise">
-                <td>Surpise</td>
-                <td>
-                    <select id="category" name="category">
-                        <option value="Veg">Veg</option>
-                        <option value="Egg">Egg</option>
-                        <option value="Chicken">Chicken</option>
-                    </select>
-                </td>
-                <td><input type="number" min="1" max="5" id="quantity" name="quantity"></td>
-                <td><input type="button" onclick="addToCart('Surprise');" value="Add to Cart"></td>
-            </form></tr>
-            
-            <tr><form action="#" id="WHOPPER">
-                <td>WHOPPER</td>
-                <td>
-                    <select id="category" name="category">
-                        <option value="Veg">Veg</option>
-                        <option value="Egg">Egg</option>
-                        <option value="Chicken">Chicken</option>
-                    </select>
-                </td>
-                <td><input type="number" min="1" max="5" id="quantity" name="quantity"></td>
-                <td><input type="button" onclick="addToCart('WHOPPER');" value="Add to Cart"></td>
-            </form></tr>
-            
-            <tr><form action="#" id="ChilliCheese">
-                <td>Chilli Cheese</td>
-                <td>
-                    <select id="category" name="category">
-                        <option value="Veg">Veg</option>
-                        <option value="Egg">Egg</option>
-                        <option value="Chicken">Chicken</option>
-                    </select>
-                </td>
-                <td><input type="number" min="1" max="5" id="quantity" name="quantity"></td>
-                <td><input type="button" onclick="addToCart('ChilliCheese');" value="Add to Cart"></td>
-            </form></tr>
-            
-            <tr><form action="#" id="TandoorGrill">
-                <td>Tandoor Grill</td>
-                <td>
-                    <select id="category" name="category">
-                        <option value="vVegeg">Veg</option>
-                        <option value="Egg">Egg</option>
-                        <option value="Chicken">Chicken</option>
-                    </select>
-                </td>
-                <td><input type="number" min="1" max="5" id="quantity" name="quantity"></td>
-                <td><input type="button" onclick="addToCart('TandoorGrill');" value="Add to Cart"></td>
-            </form></tr>
-            
-            <tr>
-                <td colspan="4">
-                    <button onclick="saveCart()"><a href="mycart.html">View Cart</a></button>
-                </td>
-            </tr>
-        </table>
+
+    <!-- SHOWCASE -->
+    <section id="showcase">
+        <div class="primary-overlay text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <h3 class="display-3 my-5">
+                            Choose Burgers
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+
+        <div class="row">
+            <div class="col-9 mx-auto">
+
+                <div class="card">
+
+                    <table class="table table-borderless table-shopping-cart">
+                        <thead class="text-muted">
+                            <tr class="small text-uppercase">
+                                <th scope="col">Burger Type</th>
+                                <th scope="col" width="120">Quantity</th>
+                                <th scope="col">Category</th>
+                                <th scope="col" class="text-right" width="200"> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <form action="#" id="CrispySupreme">
+                                    <td>
+                                        <figure class="itemside">
+                                            <div class="aside"><img src="images/crispySupreme.jpg" class="img-sm"></div>
+                                            <figcaption class="info">
+                                                <p class="title text-dark">Crispy Supreme</p>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="0" min="1" max="5"
+                                                id="quantity" name="quantity">
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <select class="form-control" id="category" name="category">
+                                                <option value="Veg">Veg</option>
+                                                <option value="Egg">Egg </option>
+                                                <option value="Chicken">Chicken</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td class="text-center" style="vertical-align:middle">
+                                        <a href="#" onclick="addToCart('CrispySupreme');" class="btn btn-light"> Add to
+                                            Cart</a>
+                                    </td>
+                                </form>
+                            </tr>
+
+
+                            <tr>
+                                <form action="#" id="CrispySupreme">
+                                    <td>
+                                        <figure class="itemside">
+                                            <div class="aside"><img src="images/surprise.jpg" class="img-sm"></div>
+                                            <figcaption class="info">
+                                                <p class="title text-dark">Surprise</p>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="0" min="1" max="5"
+                                                id="quantity" name="quantity">
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <select class="form-control" id="category" name="category">
+                                                <option value="Veg">Veg</option>
+                                                <option value="Egg">Egg </option>
+                                                <option value="Chicken">Chicken</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td class="text-center" style="vertical-align:middle">
+                                        <a href="#" onclick="addToCart('Surprise');" class="btn btn-light"> Add to
+                                            Cart</a>
+                                    </td>
+                                </form>
+                            </tr>
+
+
+                            <tr>
+                                <form action="#" id="WHOPPER">
+                                    <td>
+                                        <figure class="itemside">
+                                            <div class="aside"><img src="images/whopper.jpg" class="img-sm"></div>
+                                            <figcaption class="info">
+                                                <p class="title text-dark">Whopper</p>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="0" min="1" max="5"
+                                                id="quantity" name="quantity">
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <select class="form-control" id="category" name="category">
+                                                <option value="Veg">Veg</option>
+                                                <option value="Egg">Egg </option>
+                                                <option value="Chicken">Chicken</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td class="text-center" style="vertical-align:middle">
+                                        <a href="#" onclick="addToCart('WHOPPER');" class="btn btn-light"> Add to
+                                            Cart</a>
+                                    </td>
+                                </form>
+                            </tr>
+
+
+                            <tr>
+                                <form action="#" id="ChilliCheese">
+                                    <td>
+                                        <figure class="itemside">
+                                            <div class="aside"><img src="images/chilliCheese.jpg" class="img-sm"></div>
+                                            <figcaption class="info">
+                                                <p class="title text-dark">Chilli Cheese</p>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="0" min="1" max="5"
+                                                id="quantity" name="quantity">
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <select class="form-control" id="category" name="category">
+                                                <option value="Veg">Veg</option>
+                                                <option value="Egg">Egg </option>
+                                                <option value="Chicken">Chicken</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td class="text-center" style="vertical-align:middle">
+                                        <a href="#" onclick="addToCart('ChilliCheese');" class="btn btn-light"> Add to
+                                            Cart</a>
+                                    </td>
+                                </form>
+                            </tr>
+
+
+                            <tr>
+                                <form action="#" id="TandoorGrill">
+                                    <td >
+                                        <figure class="itemside">
+                                            <div class="aside"><img src="images/tandoor-grill.jpg" class="img-sm"></div>
+                                            <figcaption class="info">
+                                                <p class="title text-dark">Tandoor Grill</p>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" placeholder="0" min="1" max="5"
+                                                id="quantity" name="quantity">
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align:middle">
+                                        <div class="form-group">
+                                            <select class="form-control" id="category" name="category">
+                                                <option value="Veg">Veg</option>
+                                                <option value="Egg">Egg </option>
+                                                <option value="Chicken">Chicken</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align:middle" class="text-center">
+                                        <a href="#" onclick="addToCart('TandoorGrill');" class="btn btn-light"> Add to
+                                            Cart</a>
+                                    </td>
+                                </form>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="card-body border-top">
+                        <a href="mycart.html" onclick="saveCart()" class="btn btn-primary float-md-right"> View Cart <i
+                                class="fa fa-chevron-right"></i> </a>
+                        <a href="#" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

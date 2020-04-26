@@ -14,6 +14,14 @@ var formIndex = {
     TandoorGrill:4
 };
 
+var imageIndex = {
+    CrispySupreme:'images/crispySupreme.jpg',
+    Surprise:'images/surprise.jpg',
+    WHOPPER:'images/whopper.jpg',
+    ChilliCheese:'images/chilliCheese.jpg',
+    TandoorGrill:'images/tandoor-grill.jpg'
+};
+
 var data = {
     totalQuantity: 0,
     totalPrice: 0,
@@ -74,18 +82,8 @@ function placeOrder() {
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function (data) {
-            $(".outer").remove();
-            $(".infoDiv").append(
-                "<p>Total Quanity is <b>" 
-                    + data.quantity 
-                    + "</b> you will get <b>" 
-                    + data.discount 
-                    + "</b>% discount & Total Price after Discount Rs. <b>" 
-                    + data.price 
-                    + "/-</b></p>"
-                    + "<br><br><br><h4><a href='index.html'>Click here to go to index page...</a></h4>"
-            );
             window.localStorage.removeItem("cart");
+            window.location = "myOrder.html?quantity="+data.quantity+"&discount="+data.discount+"&price="+data.price;
         },
         error: function () {
             alert("lol");
@@ -107,11 +105,12 @@ function appendData() {
         var i = tbl.rows.length;
         var row = tbl.insertRow(i);
         createCell(row.insertCell(0), 0, burger.name);
-        createCell(row.insertCell(1), 1, burger.category);
-        createCell(row.insertCell(2), 2, burger.price);
-        createCell(row.insertCell(3), 3, burger.quantity);
-        createCell(row.insertCell(4), 4, burger.totalPrice);
-        createCell(row.insertCell(5), 5, 'Remove');
+        createCell(row.insertCell(1), 1, burger.name);
+        createCell(row.insertCell(2), 2, burger.category);
+        createCell(row.insertCell(3), 3, burger.price);
+        createCell(row.insertCell(4), 4, burger.quantity);
+        createCell(row.insertCell(5), 5, burger.totalPrice);
+        createCell(row.insertCell(6), 6, 'Remove');
     }
 
     getData();
@@ -121,17 +120,36 @@ function appendData() {
 // create element and append to the table cell
 function createCell(cell, i, text) {
 
-    if (i == 5) {
-        var img = document.createElement('img');
-        img.setAttribute('src', 'images/delete.png');
-        img.setAttribute('width', '30px');
-        img.setAttribute('height', '30px');
+    if (i == 6) {
+        var img = document.createElement('a');
+        img.setAttribute('href', '');
+        img.setAttribute('class', 'btn btn-light');
+        img.appendChild(document.createTextNode("Remove"));
         img.setAttribute('onclick', 'deleteRows(this)');
 
         cell.appendChild(img);
+        cell.setAttribute('style','vertical-align:middle');
+        cell.setAttribute('class','text-center');
+    } else if(i == 1){
+        
+        var image = document.createElement('img');
+        image.setAttribute('src',imageIndex[text]);
+        image.setAttribute('class','img-sm');
+        
+        var div = document.createElement('div');
+        div.setAttribute('class','aside');
+        div.appendChild(image);
+
+        var figure = document.createElement('figure');
+        figure.setAttribute('class','itemside');
+        figure.appendChild(div);
+
+        cell.appendChild(figure);
+        cell.setAttribute('class','text-center');
     } else {
-        var txt = document.createTextNode(text);
-        cell.appendChild(txt);
+        cell.appendChild(document.createTextNode(text));
+        cell.setAttribute('style','vertical-align:middle');
+        cell.setAttribute('class','text-center');
     }
 }
 
